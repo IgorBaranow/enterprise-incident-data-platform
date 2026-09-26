@@ -1,0 +1,38 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =Set(
+            varCurrentUser,
+            LookUp(DataSource, Lower(UserEmail) = Lower(User().Email))
+        );
+        
+        Set(
+            varUserRole, 
+            varCurrentUser.Role
+        );
+        
+        ClearCollect(
+            colUserAccess,
+            ForAll(
+                Split(varCurrentUser.AccessList, ","),
+                { AccessItem: Trim(Value) }
+            )
+        );
+        
+        Set(
+            varActiveContext, 
+            First(colUserAccess).AccessItem
+        );
+        
+        Set(varShowMenu, false);
+        
+        ClearCollect(colMasterData, DataSource);
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
