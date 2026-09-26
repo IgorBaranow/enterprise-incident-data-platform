@@ -10,6 +10,12 @@ Moving from scattered emails to a centralized platform delivered two major opera
 * **Root Cause Analysis & Prevention:** By collecting structured data on every ticket, the business can now identify recurring problems, track top offenders, and fix root causes to reduce the total volume of future incidents.
 * **Faster Resolution & Cost Savings:** In logistics, delays generate extra costs. Automated routing and SLA reminders ensure tickets are resolved quickly and never lost, preventing costly operational standstills.
 
+## Application UI
+
+The application interface is built on **Power Apps Canvas App** and structured into intuitive workspace zones: a sidebar for ticket filtering and search, a detailed view panel for the selected request, and status management controls.
+
+![Incident Data Platform UI](./docs/incident_data_platform.png)
+
 ## Database Architecture (SharePoint Lists)
 To maintain a unified Microsoft environment, the application relies on SharePoint Lists as its primary data storage. The architecture consists of three relational databases:
 1. **Tickets Database:** Stores all incident data (statuses, descriptions, root causes, timestamps, assignees).
